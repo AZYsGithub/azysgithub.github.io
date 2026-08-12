@@ -184,8 +184,9 @@ button {
     position: absolute;
     inset: 0;
     z-index: -1;
+    max-width: 100%;
 
-    filter: blur(30px) brightness(70%) hue-rotate(65deg);
+    filter: blur(30px) brightness(70%) hue-rotate(60deg);
     /* adjust to taste */
     pointer-events: none;
     /* let clicks/mouse pass through to page, or remove if you want Vanta mouseControls to track cursor over it */
@@ -209,7 +210,7 @@ button {
     aspect-ratio: 16 / 9;
 
     object-fit: cover;
-
+    overflow: hidden;
     border-radius: 20px;
     transition-duration: var(--slow-anim-duration);
 }
