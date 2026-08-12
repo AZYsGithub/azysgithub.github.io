@@ -392,7 +392,7 @@ About me
 
 .right-about-me p {
     color: var(--grey-text-color);
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .left-about-me img {}
@@ -536,6 +536,10 @@ About me
 
     .left-about-me {
         display: none;
+    }
+
+    .right-about-me p {
+        font-size: 16px;
     }
 }
 
