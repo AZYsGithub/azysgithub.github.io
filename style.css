@@ -185,10 +185,11 @@ button {
     inset: 0;
     z-index: -1;
 
-    filter: blur(30px) brightness(70%);
+    filter: blur(30px) brightness(70%) hue-rotate(65deg);
     /* adjust to taste */
     pointer-events: none;
     /* let clicks/mouse pass through to page, or remove if you want Vanta mouseControls to track cursor over it */
+
 }
 
 .hero-section-left {
@@ -481,11 +482,6 @@ About me
 
 .film-track:has(.film-frame:hover) {
     animation-play-state: paused;
-}
-
-.film-frame:hover {
-    transform: translateY(-15%);
-    transition-duration: var(--slow-anim-duration);
 }
 
 .film-frame:active {

@@ -29,9 +29,11 @@
     </header>
 
     <section class="hero-section" id="home">
-        <div class="hero-background-container"></div>
+        <video autoplay muted loop playsinline class="hero-background-container">
+            <source src="background.mp4" type="video/mp4">
+        </video>
         <div class="hero-section-left">
-            <h1>Certified <span class="highlighted-text">Gold</span></h1>
+            <h1>Hi <span class="highlighted-text">There!</span></h1>
             <p>Hello there! I'm Chillz, who is a chronically online person on Discord and internet.
                 I do tinker with computers a lot.
                 I am also a UI designer.
@@ -139,22 +141,4 @@
             </div>
         </div>
     </section>
-
-
-    <script src="p5.min.js"></script>
-    <script src="vanta.topology.min.js"></script>
-    <script>
-        VANTA.TOPOLOGY({
-            el: ".hero-background-container",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.0,
-            scaleMobile: 1.0,
-            color: 0xff9900,
-            backgroundColor: 0x0
-        })
-    </script>
 </body>

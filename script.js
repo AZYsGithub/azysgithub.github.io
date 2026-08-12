@@ -1,3 +1,7 @@
+const videobackground = document.querySelector(".hero-background-container");
+
+videobackground.playbackRate = 0.5;
+
 window.addEventListener('scroll', function () {
     const header = document.querySelector('.top-header');
     if (window.scrollY > 50) {
