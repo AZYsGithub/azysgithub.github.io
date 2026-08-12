@@ -185,6 +185,7 @@ button {
     inset: 0;
     z-index: -1;
     overflow: hidden;
+    object-fit: cover;
     filter: blur(30px) brightness(70%) hue-rotate(60deg);
     /* adjust to taste */
     pointer-events: none;
