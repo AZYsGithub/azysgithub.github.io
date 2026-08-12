@@ -187,8 +187,6 @@ button {
 
     filter: blur(30px) brightness(70%);
     /* adjust to taste */
-    transform: scale(1.1);
-    /* scale up slightly so blurred edges don't reveal transparent gaps */
     pointer-events: none;
     /* let clicks/mouse pass through to page, or remove if you want Vanta mouseControls to track cursor over it */
 }
@@ -436,6 +434,7 @@ About me
 
 .film-strip {
     width: 100%;
+    overflow: hidden;
 }
 
 .film-track {
@@ -444,6 +443,8 @@ About me
     animation: rollFilm 20s linear infinite;
     will-change: transform;
     gap: 10px;
+
+
 }
 
 
