@@ -1,0 +1,551 @@
+/*variables, for theme colors*/
+:root {
+    --text-color: #f3f1e7;
+    --grey-text-color: #8b8a83;
+    --background-color: #050502;
+    --background-color2: #0c0c0a;
+
+    /*core themes*/
+    --accent-color: #fcd100;
+    --secondary-accent-color: #ff9900;
+    /*for gradient*/
+    --primary-color: #ffc629;
+    --secondary-color: #cfac00;
+
+    /*blur*/
+    --blur-background-color: rgba(120, 120, 120, 0.15);
+    --blur-intensity: 20px;
+    /*apple liquid glass is ass, i'd prefer frosted glass.*/
+    --saturate-boost: 150%;
+    --glass-border: 1px;
+    --thick-glass-border: calc(var(--glass-border) * 2);
+
+    --anim-duration: 0.1s;
+    --slow-anim-duration: 0.3s;
+
+    --header-margin: 20px;
+
+    --border-radius: 16px;
+    --padding-children: 8px;
+    --margin-page: 10%;
+}
+
+/*base*/
+body {
+
+    background-color: var(--background-color);
+    margin: 0;
+
+}
+
+body,
+button {
+    font-family: "JetBrains Mono", "Inter", sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+
+/*header*/
+
+.top-header {
+    position: fixed;
+    top: var(--header-margin);
+    left: var(--header-margin);
+    right: var(--header-margin);
+    z-index: 10;
+    border-radius: var(--border-radius);
+    /* remove width: 100vw and margin: 10px */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: var(--padding-children);
+
+
+
+    transition: ease-out;
+    transition-duration: var(--slow-anim-duration);
+}
+
+.top-header.scrolled {
+
+
+    top: var(--header-margin);
+    left: var(--margin-page);
+    right: var(--margin-page);
+
+    background: var(--blur-background-color);
+    backdrop-filter: saturate(var(--saturate-boost)) blur(var(--blur-intensity));
+    box-shadow: 11px 2px 32px #00000047, inset 0 1px #ffffff14;
+
+    border: var(--glass-border) solid var(--blur-background-color);
+
+    transition-duration: var(--slow-anim-duration);
+}
+
+.top-header-text {
+    color: var(--text-color);
+
+    font-size: 16px;
+    font-style: normal;
+    margin: 5px;
+}
+
+.nav-buttons {
+    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px
+}
+
+.nav-buttons a {
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: ease-out;
+
+    transition-duration: var(--anim-duration);
+}
+
+.nav-buttons a:hover {
+    color: var(--grey-text-color);
+    transition-duration: 0.1s;
+}
+
+#contact-now-button {
+    background: var(--primary-color);
+    color: var(--background-color);
+    font-size: 14px;
+
+    border-style: solid;
+    border-width: var(--glass-border);
+    border-top-width: var(--thick-glass-border);
+    border-color: var(--blur-background-color);
+
+    padding: 5px 15px;
+
+    border-radius: calc(var(--border-radius) - var(--padding-children));
+
+    transition: ease-out;
+}
+
+#contact-now-button:hover {
+    transition-duration: var(--anim-duration);
+}
+
+#contact-now-button:active {
+    transform: scale(0.9);
+    transition-duration: var(--anim-duration);
+}
+
+/*hero section (first section)*/
+.hero-section-left h1 {
+    color: var(--text-color)
+}
+
+.hero-section-left p {
+    color: var(--text-color)
+}
+
+/*dear, why this is so diffuclt?*/
+.hero-section {
+    position: relative;
+
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+    width: 100vw;
+    height: 100vh;
+    /* fills the full viewport height */
+    margin: 0;
+    /* remove the 100px margin so it's flush */
+    box-sizing: border-box;
+    /*make the children smaller, not retaining their size and oversizing the div*/
+    padding: 0px var(--margin-page);
+
+    box-shadow: inset 0 -10px 50px 10px rgba(0, 0, 0, 1);
+
+    /* optional: use padding instead of margin to keep spacing without shrinking below viewport */
+    animation: firstTimeShow 1s ease-out;
+
+}
+
+.hero-background-container {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    filter: blur(30px) brightness(70%);
+    /* adjust to taste */
+    transform: scale(1.1);
+    /* scale up slightly so blurred edges don't reveal transparent gaps */
+    pointer-events: none;
+    /* let clicks/mouse pass through to page, or remove if you want Vanta mouseControls to track cursor over it */
+}
+
+.hero-section-left {
+    flex: 2;
+}
+
+.hero-section-right {
+    display: inline-flex;
+    flex: 3;
+    /* each takes equal share of the row */
+}
+
+.hero-section-right img {
+    max-width: 100%;
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+    transition-duration: var(--slow-anim-duration);
+}
+
+.hero-section-right img:hover {
+    transform: perspective(800px) rotateY(-15deg) rotateX(0deg);
+}
+
+/*hero socials*/
+.hero-contacts {
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    display: flex;
+    gap: 25px;
+}
+
+
+.hero-social-contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    background: rgba(235, 235, 235, 0.1);
+
+    color: var(--text-color);
+    border: solid;
+    border-width: var(--glass-border);
+    border-top-width: var(--thick-glass-border);
+    border-radius: var(--border-radius);
+    border-color: var(--blur-background-color);
+
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0);
+
+    transition: ease-out;
+    transition-duration: var(--slow-anim-duration);
+    animation: firstTimeShow 1.2s ease-out;
+}
+
+.hero-social-contact-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    transition-duration: var(--slow-anim-duration);
+
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+}
+
+.hero-social-contact-button:active {
+    transform: scale(0.8);
+    transition-duration: var(--anim-duration);
+}
+
+.hero-social-contact-button svg {
+    width: 28px;
+    height: 28px;
+
+    fill: var(--text-color);
+    box-shadow: 0 0 100px rgba(255, 255, 255, 0);
+}
+
+/* hover effects */
+#hero-discord-button:hover {
+    border-color: rgb(144, 113, 255);
+}
+
+#hero-github-button:hover {
+    border-color: rgb(255, 255, 255);
+}
+
+#hero-spotify-button:hover {
+    border-color: rgb(114, 255, 145);
+}
+
+#hero-youtube-button:hover {
+    border-color: rgb(255, 99, 99);
+}
+
+
+
+/*CTA*/
+
+.cta-hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    backdrop-filter: blur(var(--blur-intensity));
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-accent-color) 100%);
+
+
+    color: var(--background-color);
+    border: solid;
+    border-width: 2px;
+    border-radius: var(--border-radius);
+    border-color: rgba(150, 150, 150, 0.1);
+
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0);
+
+    transition: ease-out;
+    transition-duration: var(--slow-anim-duration);
+    animation: firstTimeShow 1.2s ease-out;
+}
+
+.cta-hero-button:hover {
+    box-shadow: 0 0 50px var(--accent-color);
+    transition-duration: var(--slow-anim-duration);
+}
+
+.cta-hero-button:active {
+    transform: scale(0.8);
+    transition-duration: var(--anim-duration);
+}
+
+.cta-hero-button svg {
+    width: 28px;
+    height: 28px;
+
+    fill: var(--background-color);
+}
+
+
+
+/*text thingy*/
+.hero-section-left h1 {
+    font-size: 50px;
+    /*border-bottom: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: var(--primary-color);
+    padding-bottom: 10px;*/
+    margin-bottom: 20px;
+}
+
+/*span for highlighted text*/
+.highlighted-text {
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--secondary-accent-color) 100%);
+
+    -webkit-text-fill-color: transparent;
+    /*disable the text color*/
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    /*only allow color inside text pass thorugh*/
+
+    /*pretty sure -webkit is for debugging thingy*/
+    text-shadow: 0 0 50px var(--accent-color);
+}
+
+
+
+/*
+About me
+*/
+.about-me-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+
+    /* fills the full viewport height */
+    margin: 0;
+    /* remove the 100px margin so it's flush */
+    box-sizing: border-box;
+    /*make the children smaller, not retaining their size and oversizing the div*/
+    padding: var(--margin-page);
+    /* optional: use padding instead of margin to keep spacing without shrinking below viewport */
+
+    background-color: var(--background-color);
+}
+
+.right-about-me h1 {
+    color: var(--text-color);
+    font-size: 56px;
+
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.right-about-me p {
+    color: var(--grey-text-color);
+    font-size: 22px;
+}
+
+.left-about-me img {}
+
+
+
+/*film and projects*/
+.my-projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding-top: 100px;
+    padding-bottom: 150px;
+}
+
+.my-projects h1 {
+    color: var(--text-color);
+    text-align: center;
+    font-size: 65px;
+
+    margin-bottom: 15px;
+
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.my-projects p {
+    color: var(--text-color);
+    text-align: center;
+    font-size: 20px;
+
+    margin-bottom: 80px;
+
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.film-strip {
+    width: 100%;
+}
+
+.film-track {
+    display: flex;
+    width: max-content;
+    animation: rollFilm 20s linear infinite;
+    will-change: transform;
+    gap: 10px;
+}
+
+
+.film-track-reverse {
+    animation-direction: reverse;
+
+
+}
+
+.film-frame {
+    width: 500px;
+    height: 300px;
+    position: relative;
+    border: none;
+    background: var(--blur-background-color);
+    padding: 20px;
+
+    backdrop-filter: blur(var(--blur-intensity));
+    border-radius: 20px;
+
+    transition: ease-out;
+    transition-duration: var(--slow-anim-duration);
+}
+
+
+
+.film-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+.film-track:has(.film-frame:hover) {
+    animation-play-state: paused;
+}
+
+.film-frame:hover {
+    transform: translateY(-15%);
+    transition-duration: var(--slow-anim-duration);
+}
+
+.film-frame:active {
+    transform: scale(0.9);
+    transition-duration: var(--slow-anim-duration);
+}
+
+
+
+
+
+@keyframes rollFilm {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .nav-buttons {
+        display: none;
+        /* Hide all navbar buttons on screens smaller than 768px */
+    }
+
+
+    .hero-section {
+        flex-direction: column;
+        gap: 50px;
+        margin: 80px 0;
+        /* to prevent bad position hero h1 */
+    }
+
+    .film-frame {
+        width: 350px;
+        height: 250px;
+
+        padding: 5px;
+    }
+
+    .about-me-more {
+        flex-direction: column;
+    }
+
+    .left-about-me {
+        display: none;
+    }
+}
+
+@keyframes firstTimeShow {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

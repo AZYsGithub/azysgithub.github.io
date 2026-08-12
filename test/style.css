@@ -1,0 +1,138 @@
+/* General layout settings */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 0px;
+    line-height: 1.6;
+}
+
+/* ingat
+
+. itu class
+# itu id
+
+*/
+
+/* Container to keep content centered and neat */
+.container {
+    max-width: 800px;
+    background-color: #fff;
+    padding: 40px;
+    margin: 20px auto;
+    border-radius: 12px;
+    /* Rounded corners (not too much) */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.buttonSubmit {
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px;
+
+    border: hidden;
+    border-radius: 10px;
+
+    background-color: #5282b2;
+    color: #ecf0f1;
+}
+
+.buttonSubmit:hover {
+    background-color: #365574;
+}
+
+/* 1. HEADER STYLE: Simple and clean */
+header {
+    background-color: #5282b2;
+    color: white;
+    padding: 20px;
+    /*border-radius: 12px 12px 0 0;*/
+    /* Rounded top corners only */
+    margin-bottom: 0px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    display: flex;
+    /* Use Flexbox for neat horizontal alignment */
+    justify-content: center;
+    gap: 30px;
+    font-size: 16px;
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    /* Smooth hover effect */
+}
+
+nav a:hover {
+    color: #bdc3c7;
+}
+
+/* 2. CONTENT STYLE: Readable and simple */
+main h2 {
+    margin-top: 0px;
+    color: #2c3e50;
+    font-size: 22px;
+}
+
+main p,
+main a {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Simple Textbox/Textarea Style */
+textarea {
+    width: 95%;
+    padding: 12px;
+    border: 2px solid #3498db;
+    background-color: #ecf0f1;
+    color: #333;
+    font-family: inherit;
+    font-size: 16px;
+    border-radius: 8px;
+    /* Subtle rounded corners */
+    resize: vertical;
+    /* Allow user to change height only */
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    outline: none;
+    background-color: #fff;
+}
+
+/* 3. FOOTER STYLE: Simple closing note */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #7f8c8d;
+    font-size: 14px;
+    padding-top: 20px;
+    border-top: 2px solid #ecf0f1;
+    /* Subtle top border */
+}
+
+/* Link styling inside content (blue and modern) */
+a {
+    color: #3498db;
+}
+
+a:hover {
+    text-decoration: underline;
+}
