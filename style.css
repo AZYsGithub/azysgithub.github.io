@@ -523,6 +523,7 @@ About me
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 
 .close-modal-button {
@@ -555,6 +556,7 @@ About me
     justify-content: right;
     flex-direction: row-reverse;
     gap: calc(var(--modal-box-padding) / 2);
+    margin-top: var(--modal-box-padding);
 }
 
 .modal-button {

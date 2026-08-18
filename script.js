@@ -23,12 +23,15 @@ modalCloseButton.addEventListener('click', () => {
 function ShowPopup(title, description, buttons) {
     modalElement.style.display = "flex";
 
+
     const titleElement = modalBox.querySelector("h1");
     const descElement = modalBox.querySelector("p");
     const buttonContainer = modalBox.querySelector(".modal-buttons-contianer");
 
     titleElement.textContent = title;
     descElement.textContent = description;
+
+    buttonContainer.innerHTML = "";
 
     for (const button of buttons) {
         const newButton = document.createElement("button");
@@ -40,7 +43,9 @@ function ShowPopup(title, description, buttons) {
         newButton.textContent = button.text;
         buttonContainer.appendChild(newButton);
         newButton.addEventListener("click", () => {
-            button.callback();
+            if (button.callback != null) {
+                button.callback();
+            }
             if (button.close != null) {
                 if (button.close) {
                     modalElement.style.display = "none";
@@ -71,3 +76,17 @@ ShowPopup("Welcome", "Hello, welcome to the test modal dialog, i hope you like t
         }
     ]
 )
+
+function wip() {
+    ShowPopup("Work in Progress", "Still work in progress.",
+        [
+            {
+                text: "Ok",
+                type: "primary",
+            },
+        ]
+    )
+}
+
+document.querySelector(".cta-hero-button").addEventListener("click", wip)
+document.querySelector("#contact-now-button").addEventListener("click", wip)
